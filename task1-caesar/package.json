@@ -1,0 +1,23 @@
+{
+  "name": "task-1-caesar",
+  "version": "1.0.0",
+  "description": "First task for RS-School Node course",
+  "main": "caesar-CLI.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komalapa/rs-school.git"
+  },
+  "author": "komalapa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/komalapa/rs-school/issues"
+  },
+  "homepage": "https://github.com/komalapa/rs-school#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
+}
