@@ -13,6 +13,9 @@ const alphabetCapitals = [
     'Y', 'Z'
   ]
 function shiftStr(str, shift){
+    shift = shift % 26
+    if (shift == 0) return str;
+    
     const shiftedAlphabet = [...alphabet.slice(shift, ), ...alphabet.slice(0, shift)];
     const shiftedAlphabetCapitals = [...alphabetCapitals.slice(shift, ), ...alphabetCapitals.slice(0, shift)];
     let shiftedStr = '';
@@ -39,3 +42,6 @@ export function caesarCode(str, shift){
 export function caesarDecode(str, shift){
     return shiftStr (str, -shift)
 }
+
+console.log(caesarCode("AbCdE", 26))
+console.log(caesarDecode (caesarCode("AbCdE", 26), 26))
