@@ -19,7 +19,7 @@ export function writeOutput (outputFile){
         let stream = stdout;
         return stream
     } 
-    let stream = createWriteStream(outputFile,  {flags: 'w'})
+    let stream = createWriteStream(outputFile,  {flags: 'a'})
     return stream
 }
 
@@ -29,7 +29,7 @@ export class CipherTransform extends Transform
     constructor( transformCallback, stringEncoding='utf8' )
     {
         if ( typeof transformCallback != 'function' )
-        {    // throw type error
+        {    
             throw new TypeError( "Callback must be a function." )
         }
         super()
@@ -53,5 +53,5 @@ const cipher = new CipherTransform( ( data ) =>
 })
 
 
-getInput('./input.txt').pipe(cipher).pipe(writeOutput('./output.txt'))
+//getInput('./input.txt').pipe(cipher).pipe(writeOutput('./output.txt'))
 

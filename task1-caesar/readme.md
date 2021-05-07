@@ -63,15 +63,15 @@ $ node caesar-CLI.js --action decode --shift -1 --input ./input.txt --output ./o
 3. Кодирование затрагивает только буквы латинского алфавита:
 ````bash
 $ node caesar-CLI.js --action encode --shift 30
-Input file is not defined. Stdin will be used
-Output file is not defined. Stdout will be used
+warn: Input file is not defined. Stdin will be used
+warn: Output file is not defined. Stdout will be used
 Qwerty? No! 256:2 qwerty...
 Msanpu? Jk! 256:2 msanpu...
 ````
 ````bash
 node caesar-CLI.js --action decode --shift 30
-Input file is not defined. Stdin will be used
-Output file is not defined. Stdout will be used
+warn: Input file is not defined. Stdin will be used
+warn: Output file is not defined. Stdout will be used
 Msanpu? Jk! 256:2 msanpu...
 Qwerty? No! 256:2 qwerty...
 ````
