@@ -5,10 +5,10 @@ import { getInput, writeOutput, CipherTransform} from './caesar-io.js'
 const program = new Command();
 
 export default program
-  .option('-s, --shift [shift]', 'integer shift (key of caesar cipher)')
+  .option('-s, --shift <shift>', 'integer shift (key of caesar cipher)')
   .option('-i, --input [inputFile]', 'input file, if not defined will used stdin')
   .option('-o, --output [outputFile]', 'output file, if not defined will used stdout')
-  .option('-a, --action [type]', 'can be code or decode.');
+  .option('-a, --action <type>', 'can be code or decode.');
 
 
 program.parse(process.argv);

@@ -19,7 +19,6 @@ export function writeOutput (outputFile){
         let stream = stdout;
         return stream
     } 
-    console.log(outputFile)
     let stream = createWriteStream(outputFile,  {flags: 'w'})
     return stream
 }
