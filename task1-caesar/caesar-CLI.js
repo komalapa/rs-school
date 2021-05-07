@@ -1,6 +1,7 @@
 import { Command } from 'commander/esm.mjs';
 import { caesarCode, caesarDecode } from './caesar.js'
 import { cliValidate } from './caesar-arg-validator.js'
+import { getInput, writeOutput, CipherTransform} from './caesar-io.js'
 const program = new Command();
 
 export default program
