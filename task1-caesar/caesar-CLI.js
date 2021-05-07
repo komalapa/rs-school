@@ -14,10 +14,16 @@ export default program
 program.parse(process.argv);
 
 const options = program.opts();
-console.log(cliValidate(options))
-// if (cliValidate(options)){
-//   if (options.action === "decode") console.log(caesarDecode(options.input, options.shift))
-//   if (options.action === "code") console.log(caesarCode(options.input, options.shift))
-// }
 
-
+if (cliValidate(options)){
+  const cipher = new CipherTransform( ( data ) =>
+  {
+    if (options.action === "encode"){
+      return caesarCode(data, options.shift)
+    }
+    if (options.action === "decode"){
+      return caesarDecode(data, options.shift)
+    } 
+  })
+  getInput(options.input).pipe(cipher).pipe(writeOutput(options.output))
+}

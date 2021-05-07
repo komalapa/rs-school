@@ -3,26 +3,24 @@ import {Transform} from 'stream'
 import {createReadStream, createWriteStream} from 'fs'
 import {caesarCode} from './caesar.js'
 
-console.log(stdin)
+//console.log(stdin)
 export function getInput (inputFile){
     if (!inputFile) {
         let stream = stdin;
-        console.log("stdin")
+        //console.log("stdin")
         return stream
     } 
     let stream = createReadStream(inputFile)
-    console.log('file')
     return stream
 }
 
 export function writeOutput (outputFile){
     if (!outputFile) {
         let stream = stdout;
-        console.log("stdin")
         return stream
     } 
-    let stream = createWriteStream(outputFile)
-    console.log('file')
+    console.log(outputFile)
+    let stream = createWriteStream(outputFile,  {flags: 'w'})
     return stream
 }
 
@@ -39,7 +37,6 @@ export class CipherTransform extends Transform
         this.transformCallback = transformCallback
 
         this.stringEncoding = stringEncoding
-        this.lineBuffer = ''
     }
 
     // implement transform method (input encoding is ignored)
@@ -53,11 +50,9 @@ export class CipherTransform extends Transform
 
 const cipher = new CipherTransform( ( data ) =>
 {
-    // replace every whitespace by an underscore
-    return caesarCode(data, 1)
+   return caesarCode(data, 1)
 })
 
 
-
-getInput('./input.txt').pipe(cipher).pipe(writeOutput('./output'))
+getInput('./input.txt').pipe(cipher).pipe(writeOutput('./output.txt'))
 
