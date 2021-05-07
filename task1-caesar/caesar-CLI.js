@@ -26,4 +26,7 @@ if (cliValidate(options)){
     } 
   })
   getInput(options.input).pipe(cipher).pipe(writeOutput(options.output))
+} else {
+  console.log (process.stgerr)
+  process.exit(64)
 }
