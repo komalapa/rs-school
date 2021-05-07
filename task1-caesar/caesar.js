@@ -43,5 +43,5 @@ export function caesarDecode(str, shift){
     return shiftStr (str, -shift)
 }
 
-//console.log(caesarCode("AbCdE", 26))
-console.log(caesarDecode (caesarCode("AbCdE", 26), 26))
+//console.log(caesarCode('This is secret. Message about "_" symbol!', -100))
+//console.log(caesarDecode (caesarCode('This is secret. Message about "_" symbol!', -100), -100))

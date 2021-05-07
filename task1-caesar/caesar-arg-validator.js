@@ -1,4 +1,4 @@
-import { existsSync } from 'fs';
+import { existsSync, access, constants } from 'fs';
 
 
 export function cliValidate(options){
@@ -22,13 +22,33 @@ export function cliValidate(options){
     if (options.input === undefined){
         console.warn("Input file is not defined. Stdin will be used")
     } else if (!existsSync(options.input)){
+        access(options.input, constants.R_OK, (err) => {
+            if (err) {
+                console.error(`Intput file is not readable`);
+                return false
+            }
+        });
         console.error("Input file is not exist")
         return false
     }
     if (options.output === undefined){
+        
         console.warn("Output file is not defined. Stdout will be used")
-    } else if (!existsSync(options.output)){
+    } else if (!existsSync(options.output)) {
         console.warn("Output file is not exist. It will be created")
+    } else {
+        console.log(options.output)
+        access(options.output, constants.W_OK, (err) => {
+            console.log(err)
+            if (err) {
+                console.error(`Output file is not writable`);
+                return false
+            }
+        });
     }
+        
+        
+        
+    
     return true
 }
