@@ -35,7 +35,9 @@ export function cliValidate(options){
         
         console.warn("warn: Output file is not defined. Stdout will be used")
     } else if (!existsSync(options.output)) {
-        console.warn("warn: Output file is not exist. It will be created")
+        //console.warn("warn: Output file is not exist. It will be created")
+        console.warn("error: Output file is not exist.")
+        return false
     } else {
         console.log(options.output)
         access(options.output, constants.W_OK, (err) => {
